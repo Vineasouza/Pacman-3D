@@ -22,12 +22,16 @@ public class scriptPacman : MonoBehaviour
         rotY = 0;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.collider.tag == "wakka")
+        if (other.tag == "wakka")
         {
             som.Play();
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
 
         if(collision.collider.tag == "portal")
         {
@@ -40,6 +44,11 @@ public class scriptPacman : MonoBehaviour
                 rbd.position = new Vector3(((-1) * transform.position.x) + 5, transform.position.y, transform.position.z);
                 transform.Rotate(Vector3.back);
             }
+        }
+
+        if (collision.gameObject.tag == "wakka")
+        {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
         }
 
     }

@@ -10,22 +10,14 @@ public class scriptWakka : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-
-        if (collision.collider.tag == "pacman")
+        if(other.tag == "pacman")
         {
             Destroy(gameObject);
             GameObject gamePlacar = GameObject.Find("controlePontos");
             scriptPontos script = gamePlacar.GetComponent<scriptPontos>();
             script.incrementar(1);
-            
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

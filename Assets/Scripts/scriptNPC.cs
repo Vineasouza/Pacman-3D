@@ -48,7 +48,6 @@ public class scriptNPC : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Vector3.Distance(transform.position, PC.transform.position));
         if(Vector3.Distance(transform.position, PC.transform.position) <= maxDistPC || perseguicao)
         {
             agente.SetDestination(PC.transform.position);
@@ -59,6 +58,5 @@ public class scriptNPC : MonoBehaviour
         {
             proximo();
         }
-        //agente.SetDestination(PC.transform.position);
     }
 }

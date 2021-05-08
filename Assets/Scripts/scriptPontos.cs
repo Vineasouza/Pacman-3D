@@ -23,7 +23,8 @@ public class scriptPontos : MonoBehaviour
 
     private void Update()
     {
-        if(PlayerPrefs.GetInt("placar") == 93)
+        
+        if(GameObject.FindWithTag("wakka") == null)
         {
             SceneManager.LoadScene(3);
         }
